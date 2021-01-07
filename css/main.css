@@ -46,6 +46,9 @@ section.field>div
     box-sizing: border-box;
     width: 200px;
     height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -55,4 +58,8 @@ section.field>div:nth-child(3n+1){border-left: solid 3px black;}
 section.field>div:nth-child(3n+3){border-right: solid 3px black;}
 
 
+div[name="block_X"]{background: url('../img/X.png') center center no-repeat;}
+div[name="block_O"]{background: url('../img/O.png') center center no-repeat;}
 
+
+div[name="block_X"], div[name="block_O"]{background-size: 80% 80%;}
