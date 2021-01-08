@@ -22,18 +22,31 @@ const playerCPU = function playerComputer(fieldFreeElements)
 
     clickElementCPU.setAttribute('name', 'block_O');
     variables.countFreeElements.splice(variables.countFreeElements.indexOf(fieldFreeElements[position]), 1);
+
+    checkWhoWinner();
 }
 
 
 const checkWhoWinner = function checkingWinner()
 {
-    // console.log(Date.now());
     variables.winnerCoordinates.forEach((item) => {
+        let countCheck = {
+            winnerX : 0,
+            winnerO : 0,
+        }
         item.forEach((element) => {
-            console.log(htmlElements.fieldElements[element].outerHTML);
+            if(htmlElements.fieldElements[element].outerHTML.length === 43 && htmlElements.fieldElements[element].outerHTML.charAt(34) === 'X')
+            {
+                countCheck.winnerX ++;
+                countCheck.winnerX === 3 ? console.log('win X') : '';
+            }
+            if(htmlElements.fieldElements[element].outerHTML.length === 43 && htmlElements.fieldElements[element].outerHTML.charAt(34) === 'O')
+            {
+                countCheck.winnerO ++;
+                countCheck.winnerO === 3 ? console.log('win O') : '';
+            }
         });
     });
-    // console.log(Date.now());
 }
 
 
@@ -47,7 +60,6 @@ htmlElements.field.addEventListener('click', (event) => {
             if(variables.countFreeElements.length != 1)
             {
                 variables.countFreeElements.splice(variables.countFreeElements.indexOf(event.target.className), 1);
-                // playerCPU(variables.countFreeElements);
                 checkWhoWinner();
                 setTimeout(() => {playerCPU(variables.countFreeElements)}, 750);
             }
