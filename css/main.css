@@ -63,3 +63,27 @@ div[name="block_O"]{background: url('../img/O.png') center center no-repeat;}
 
 
 div[name="block_X"], div[name="block_O"]{background-size: 80% 80%;}
+
+
+.winnerHuman,
+.winnerCPU
+{
+    display: flex;
+    align-items: flex-start;
+    width: 600px;
+    height: 600px;
+    position: fixed;
+    left: -100%;
+    z-index: 100;
+    background-color: #fff;
+    transition: all .5s;
+}
+
+
+.winnerHuman>p,
+.winnerCPU>p
+{
+    margin: 40px 0 0 30px;
+    font-size: 50px;
+    font-family: Arial;
+}
